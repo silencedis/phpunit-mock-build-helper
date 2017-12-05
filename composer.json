@@ -1,7 +1,7 @@
 {
     "name": "silencedis/phpunit-mock-helper",
     "description": "A convenient helper for creating mock objects for phpunit. The helper uses the phpunit's mock builder. But it allows to create a mock object in one step using simple configuration.",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "license": "MIT",
     "type": "library",
     "authors": [
