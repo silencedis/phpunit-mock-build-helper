@@ -12,9 +12,9 @@ use SilenceDis\Exception\InvalidMockTypeException;
  */
 class MockHelper
 {
-    const MOCK_FOR_ABSTRACT = 'abstract';
-    const MOCK_FOR_TRAIT = 'trait';
-    const MOCK_DEFAULT = 'default';
+    const MOCK_TYPE_DEFAULT = 'default';
+    const MOCK_TYPE_ABSTRACT = 'abstract';
+    const MOCK_TYPE_TRAIT = 'trait';
 
     /**
      * An instance of TestCase whick is used to create mock builder through it.
@@ -27,9 +27,9 @@ class MockHelper
      * @var array
      */
     private $mockTypesToMethodsMap = [
-        self::MOCK_DEFAULT => 'getMock',
-        self::MOCK_FOR_ABSTRACT => 'getMockForAbstractClass',
-        self::MOCK_FOR_TRAIT => 'getMockForTrait',
+        self::MOCK_TYPE_DEFAULT => 'getMock',
+        self::MOCK_TYPE_ABSTRACT => 'getMockForAbstractClass',
+        self::MOCK_TYPE_TRAIT => 'getMockForTrait',
     ];
 
     /**
