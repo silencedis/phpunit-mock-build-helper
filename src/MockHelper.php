@@ -88,9 +88,9 @@ class MockHelper
      * - `will` - It's similar to `willReturn` but the method `will()` will used instead of `willReturn()`.
      * - `mockType` - It's a type of mock.
      *   Allowed values are:
-     *   - `default` (MockHelper::MOCK_DEFAULT)
-     *   - `abstract` (MockHelper::MOCK_ABSTRACT)
-     *   - `trait` (MockHelper::MOCK_TRAIT)
+     *   - `default` (MockHelper::MOCK_TYPE_DEFAULT)
+     *   - `abstract` (MockHelper::MOCK_TYPE_ABSTRACT)
+     *   - `trait` (MockHelper::MOCK_TYPE_TRAIT)
      *   The value of this parameter is used to select a method of the original mock builder that must be used to create a mock.
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
@@ -105,12 +105,12 @@ class MockHelper
 
         $willReturn = $this->pullOutArrayValue($config, 'willReturn', []);
         $will = $this->pullOutArrayValue($config, 'will');
-        $mockType = $this->pullOutArrayValue($config, 'mockType', self::MOCK_DEFAULT);
+        $mockType = $this->pullOutArrayValue($config, 'mockType', self::MOCK_TYPE_DEFAULT);
 
         // 'methods' must be null for 'getMock' to not replace any element
         // (unlike 'getMockForAbstractClass')
         if (empty($config['methods'])) {
-            if ($mockType == self::MOCK_DEFAULT) {
+            if ($mockType == self::MOCK_TYPE_DEFAULT) {
                 $config['methods'] = null;
             }
         }
