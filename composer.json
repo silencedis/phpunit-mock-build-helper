@@ -12,6 +12,7 @@
     ],
     "require": {
         "php": "^7.1",
+        "phpunit/phpunit": "6",
         "phpunit/phpunit-mock-objects": ">2.3 <5.0"
     },
     "autoload": {
