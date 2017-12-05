@@ -1,0 +1,22 @@
+{
+    "name": "silencedis/phpunit-mock-helper",
+    "description": "A convenient helper for creating mock objects for phpunit. The helper uses the phpunit's mock builder. But it allows to create a mock object in one step using simple configuration.",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Yurii Slobodeniuk",
+            "email": "silencedis@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "phpunit/phpunit-mock-objects": ">2.3 <5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SilenceDis\\PHPUnitMockHelper\\": "src/"
+        }
+    }
+}
