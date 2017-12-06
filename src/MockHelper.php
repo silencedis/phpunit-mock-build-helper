@@ -101,7 +101,7 @@ class MockHelper
             $this->prepareMockConfig($configuration);
         }
 
-        $config = call_user_func_array('array_replace_recursive', [$configurations]);
+        $config = call_user_func_array('array_replace_recursive', $configurations);
 
         $willReturn = $this->pullOutArrayValue($config, 'willReturn', []);
         $will = $this->pullOutArrayValue($config, 'will');
