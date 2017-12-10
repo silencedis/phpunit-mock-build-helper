@@ -94,6 +94,7 @@ class MockHelper
      *   The value of this parameter is used to select a method of the original mock builder that must be used to create a mock.
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
+     * @throws InvalidMockTypeException
      */
     public function mockObject($objectClassName, ...$configurations)
     {
