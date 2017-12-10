@@ -186,7 +186,7 @@ class MockHelper
      * @return string
      * @throws \SilenceDis\Exception\InvalidMockTypeException
      */
-    private function getMockMethod($mockType)
+    protected function getMockMethod($mockType)
     {
         if (!isset($this->mockTypesToMethodsMap[$mockType])) {
             throw new InvalidMockTypeException();

@@ -17,7 +17,8 @@
     },
     "autoload": {
         "psr-4": {
-            "SilenceDis\\PHPUnitMockHelper\\": "src/"
+            "SilenceDis\\PHPUnitMockHelper\\": "src/",
+            "SilenceDis\\PHPUnitMockHelper\\Test\\": "tests/"
         }
     }
 }
