@@ -3,7 +3,7 @@
 namespace SilenceDis\PHPUnitMockHelper;
 
 use PHPUnit\Framework\TestCase;
-use SilenceDis\Exception\InvalidMockTypeException;
+use SilenceDis\PHPUnitMockHelper\Exception\InvalidMockTypeException;
 
 /**
  * Class MockHelper
@@ -184,7 +184,7 @@ class MockHelper
      * @param string $mockType A mock type.
      *
      * @return string
-     * @throws \SilenceDis\Exception\InvalidMockTypeException
+     * @throws InvalidMockTypeException
      */
     protected function getMockMethod($mockType)
     {
