@@ -3,7 +3,7 @@
 namespace SilenceDis\PHPUnitMockHelper;
 
 use PHPUnit\Framework\TestCase;
-use SilenceDis\Exception\InvalidMockTypeException;
+use SilenceDis\PHPUnitMockHelper\Exception\InvalidMockTypeException;
 
 /**
  * Class MockHelper
@@ -94,6 +94,7 @@ class MockHelper
      *   The value of this parameter is used to select a method of the original mock builder that must be used to create a mock.
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
+     * @throws InvalidMockTypeException
      */
     public function mockObject($objectClassName, ...$configurations)
     {
@@ -155,23 +156,25 @@ class MockHelper
         }
 
         if (!empty($config['methods']) && is_array($config['methods'])) {
+            $methodNames = [];
             foreach ($config['methods'] as $key => $value) {
-                if (is_numeric($key)) {
-                    $config['methods'][$value] = $value;
-                    unset($config['methods'][$key]);
-                } elseif (is_string($key)) {
-                    $config['methods'][$key] = $key;
+                $methodNames[] = is_numeric($key) ? $value : $key;
+                if (!is_numeric($key)) {
                     $config['willReturn'][$key] = $value;
                 }
             }
-            $config['methods'] = array_combine($config['methods'], $config['methods']);
+            $config['methods'] = $methodNames;
         }
 
         if (!isset($config['will'])) {
             $config['will'] = [];
         }
 
-        if (isset($config['constructor']) && !isset($config['disableOriginalConstructor'])) {
+        if(isset($config['constructor'], $config['disableOriginalConstructor'])) {
+            unset($config['constructor']);
+        }
+
+        if (isset($config['constructor'])) {
             $config['disableOriginalConstructor'] = !$config['constructor'];
             unset($config['constructor']);
         }
@@ -183,9 +186,9 @@ class MockHelper
      * @param string $mockType A mock type.
      *
      * @return string
-     * @throws \SilenceDis\Exception\InvalidMockTypeException
+     * @throws InvalidMockTypeException
      */
-    private function getMockMethod($mockType)
+    protected function getMockMethod($mockType)
     {
         if (!isset($this->mockTypesToMethodsMap[$mockType])) {
             throw new InvalidMockTypeException();

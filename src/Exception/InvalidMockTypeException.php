@@ -1,6 +1,6 @@
 <?php
 
-namespace SilenceDis\Exception;
+namespace SilenceDis\PHPUnitMockHelper\Exception;
 
 /**
  * Class InvalidMockTypeException
