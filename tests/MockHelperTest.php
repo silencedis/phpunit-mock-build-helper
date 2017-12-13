@@ -120,7 +120,9 @@ class MockHelperTest extends TestCase
                 ],
                 'expectedResult' => [
                     'methods' => [
-                        'methodName',
+                        // The method names are used as keys of array
+                        // to prevent repeating of method names when merging configurations in the "mockObject" method
+                        'methodName' => 'methodName',
                     ],
                     'willReturn' => [
                         'methodName' => 'value',
@@ -136,7 +138,7 @@ class MockHelperTest extends TestCase
                 ],
                 'expectedResult' => [
                     'methods' => [
-                        'methodName',
+                        'methodName' => 'methodName',
                     ],
                     'willReturn' => [
                         'methodName' => 'value',
@@ -164,9 +166,9 @@ class MockHelperTest extends TestCase
                 ],
                 'expectedResult' => [
                     'methods' => [
-                        'methodName',
-                        'anotherMethodName',
-                        'oneMoreMethodName',
+                        'methodName' => 'methodName',
+                        'anotherMethodName' => 'anotherMethodName',
+                        'oneMoreMethodName' => 'oneMoreMethodName',
                     ],
                     'willReturn' => [
                         'methodName' => 'aaa',

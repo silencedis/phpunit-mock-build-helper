@@ -158,7 +158,8 @@ class MockHelper
         if (!empty($config['methods']) && is_array($config['methods'])) {
             $methodNames = [];
             foreach ($config['methods'] as $key => $value) {
-                $methodNames[] = is_numeric($key) ? $value : $key;
+                $methodName = is_numeric($key) ? $value : $key;
+                $methodNames[$methodName] = $methodName;
                 if (!is_numeric($key)) {
                     $config['willReturn'][$key] = $value;
                 }
@@ -170,7 +171,7 @@ class MockHelper
             $config['will'] = [];
         }
 
-        if(isset($config['constructor'], $config['disableOriginalConstructor'])) {
+        if (isset($config['constructor'], $config['disableOriginalConstructor'])) {
             unset($config['constructor']);
         }
 
